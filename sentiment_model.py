@@ -18,3 +18,8 @@ def predict_sentiment(text):
     text = preprocess(text)
     vector = tfidf.transform([text])
     return model.predict(vector)[0]
+
+import emoji
+
+def remove_emoji(text):
+    return emoji.replace_emoji(text, replace='')
