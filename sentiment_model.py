@@ -8,6 +8,8 @@ model = pickle.load(open("model.pkl", "rb"))
 tfidf = pickle.load(open("tfidf.pkl", "rb"))
 
 def preprocess(text):
+    if not isinstance(text, str):
+        return ""
     text = text.lower()
     text = re.sub(r'[^a-z\s]', '', text)
     return stemmer.stem(text)
