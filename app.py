@@ -15,3 +15,11 @@ if file:
         st.success("Selesai!")
 
         st.dataframe(df)
+
+if st.button("Analisis Sentimen"):
+    df = df.dropna(subset=[kolom_teks])
+    df[kolom_teks] = df[kolom_teks].astype(str)
+
+    df['sentimen'] = df[kolom_teks].apply(predict_sentiment)
+    st.success("Analisis selesai!")
+    st.dataframe(df)
